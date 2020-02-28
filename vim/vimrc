@@ -1,31 +1,29 @@
-set nocompatible
-"set nu
-filetype on
-syntax on
+set nocompatible        
+set nu
+filetype on                                       
+syntax on      
 set background=dark
-colorscheme desert
 set t_Co=256
-set autoindent
-"set smartindent
-set tabstop=4
-set shiftwidth=4
-set ai!
-set showmatch
-set incsearch
-set ruler
-set backspace=2
+colorscheme desert
+set autoindent                                    
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab
+set ai!                                          
+set showmatch                                     
+set incsearch                                     
+set ruler                                              
+set backspace=2                                   
+set rtp+=/usr/local/opt/fzf
 
-"设置行列高亮
 set cursorline
 set cursorcolumn
 highlight CursorLine cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
-highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+"highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 
-"set mouse=a
+"set mouse=a                                                                  
 set encoding=utf-8
-:set fencs=utf-8,GB18030,ucs-bom,default,latin1
-:set statusline=%F%m%r%h%w\ [%{&ff},%{&fenc!=''?&fenc:&enc}]\ [POS=%l行,%v列][%p%%,%LL]
-:set laststatus=2       "让状态栏总是显示
+set fencs=utf-8,gbk,GB18030,ucs-bom,default,latin1
+set statusline=%F%m%r%h%w\ [%{&ff},%{&fenc!=''?&fenc:&enc}]\ [POS=%l行,%v列][%p%%,%LL]
+set laststatus=2       "让状态栏总是显示
 let mapleader=";"
 nmap lb 0
 nmap le $
@@ -33,7 +31,7 @@ nmap le $
 vnoremap <Leader>y "+y
 nmap <Leader>p "+p
 "定义快捷键关闭当前分割窗口
-nmap <Leader>q :q<CR>
+nmap <Leader>q :wq<CR>
 "定义快捷键保存当前窗口内容
 nmap <Leader>w :w<CR>
 " 定义快捷键保存所有窗口内容并退出 vim
