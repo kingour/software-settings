@@ -17,5 +17,5 @@ if [[ x"${newip}" != x"${oldip}" ]];then
     mkdir -p /root/dev/iptables
     /bin/cp -f /etc/sysconfig/iptables /root/dev/iptables/iptables.$(date +%Y%m%d)
     iptables -R ${USER_WHITELIST} 1 -s ${newip} -j ACCEPT
-    serive iptables save
+    service iptables save
 fi
