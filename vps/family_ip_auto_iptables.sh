@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# dir var
+wd=$(cd `dirname ${0}` && pwd)
+. ${wd}/../lib/*.sh
+
 if [[ -z "${FAMILY_DDNS_HOST}" ]];then
     log "Pls set FAMILY_DDNS_HOST env param, like 'export FAMILY_DDNS_HOST=a.com'"
     exit 1
