@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" -y
+yes | sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+source ~/.zshrc
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
 git clone git://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="ys"/' ~/.zshrc
@@ -9,7 +10,7 @@ sed -i 's/^plugins=.*/plugins=(\n\tgit\n\tzsh-syntax-highlighting\n\t\zsh-autosu
 sed -i 's/^# export LANG=.*/export LANG=en_US.UTF-8/' ~/.zshrc
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install -y
+~/.fzf/install
 
 cat <<EOF >> ~/.zshrc
 alias rm='rm -i'
