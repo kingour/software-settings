@@ -13,7 +13,7 @@ if [[ -z "${USER_WHITELIST}" ]];then
     exit 1
 fi
 newip=$(nslookup "${FAMILY_DDNS_HOST}" | grep -A 1 "${FAMILY_DDNS_HOST}" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
-oldip=$(iptables -L ${USER_WHITELIST} 1 | awk '{print $4}')
+oldip=$(iptables -nvL ${USER_WHITELIST} 1 | awk '{print $8}')
 log "[HOST: ${FAMILY_DDNS_HOST}][oldip:${oldip}, newip:${newip}]"
 
 if [[ x"${newip}" != x"${oldip}" ]];then
