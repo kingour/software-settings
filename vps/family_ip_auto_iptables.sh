@@ -4,6 +4,8 @@
 wd=$(cd `dirname ${0}` && pwd)
 . ${wd}/../lib/*.sh
 
+. /root/.bashrc
+
 if [[ -z "${FAMILY_DDNS_HOST}" ]];then
     log "Pls set FAMILY_DDNS_HOST env param, like 'export FAMILY_DDNS_HOST=a.com'"
     exit 1
@@ -13,7 +15,7 @@ if [[ -z "${USER_WHITELIST}" ]];then
     exit 1
 fi
 newip=$(nslookup "${FAMILY_DDNS_HOST}" | grep -A 1 "${FAMILY_DDNS_HOST}" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+')
-oldip=$(iptables -nvL ${USER_WHITELIST} 1 | awk '{print $8}')
+oldip=$(/sbin/iptables -nvL ${USER_WHITELIST} 1 | awk '{print $8}')
 log "[HOST: ${FAMILY_DDNS_HOST}][oldip:${oldip}, newip:${newip}]"
 
 if [[ x"${newip}" != x"${oldip}" ]];then
